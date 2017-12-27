@@ -1,0 +1,17 @@
+grafana:
+    image: grafana/grafana:latest
+    ports:
+        - ${http_port}:3000
+    environment:
+        GF_SECURITY_ADMIN_USER: ${admin_username}
+        GF_SECURITY_ADMIN_PASSWORD: ${admin_password}
+        GF_SECURITY_SECRET_KEY: ${secret_key}
+        GF_INSTALL_PLUGINS: $(plugin)
+        GF_AWS_PROFILES: $(profile)
+        GF_AWS_default_ACCESS_KEY_ID: $(access_key_id)
+        GF_AWS_default_SECRET_ACCESS_KEY: $(secret_access_key)
+        GF_AWS_default_REGION: $(region)
+
+
+
+    
